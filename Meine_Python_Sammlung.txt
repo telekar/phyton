@@ -1,0 +1,7 @@
+
+# Einfügen von Dateien
+
+with open ( "OneMill_Pi.txt","r") as f:
+    pi = f.read()
+
+    
