@@ -4,4 +4,34 @@
 with open ( "OneMill_Pi.txt","r") as f:
     pi = f.read()
 
-    
+#######################################################
+
+import pygame as pg
+
+resolution = 1000
+
+# pg setup
+pg.init()
+screen = pg.display.set_mode((resolution, resolution))
+clock = pg.time.Clock()
+screen.fill((0,0,0))
+
+#drawing
+pg.draw.circle(screen,(255,255,255),(100,100),50,3)
+pg.display.flip()
+
+#pg control
+running = True
+
+while running:
+    # poll for events
+    # pg.QUIT event means the user clicked X to close your window
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            running = False
+
+#######################################################
+
+from dataclasses import dataclass
+
+#######################################################

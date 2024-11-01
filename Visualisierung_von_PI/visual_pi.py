@@ -1,3 +1,11 @@
+# Animation from PI
+#
+# Based on Youtube-Series from Graviatar 
+# https://www.youtube.com/playlist?list=PLhC_4AWNg9rklYLWPZmOKeNEW3LcwN5lz
+#
+# visualisation after method from Nadieh Brehmer 
+# https://www.scientificamerican.com/blog/sa-visual/the-boundless-beauty-of-pi/
+
 import turtle as tu
 
 lines = 100_000
