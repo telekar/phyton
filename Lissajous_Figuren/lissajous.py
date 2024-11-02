@@ -1,6 +1,8 @@
 # Animation from Lissajous figures
 #
 # Based on Youtube-Series from Graviatar 
+# https://github.com/Gravitar64/A-beautiful-code-in-Python
+#
 # https://www.youtube.com/playlist?list=PLhC_4AWNg9rklYLWPZmOKeNEW3LcwN5lz
 #
 # https://de.wikipedia.org/wiki/Lissajous-Figur
@@ -11,6 +13,7 @@
 
 import pygame as pg
 import math
+import time
 from dataclasses import dataclass
 
 #variables
@@ -66,7 +69,7 @@ class Lissajous:
     def update(self,pos):
         self.intersections.append(pos)
 
-    # löscht alle Punkte aus der Liste
+    # Clear the intersection list
     def reset(self):
         self.intersections = []
 
@@ -129,6 +132,7 @@ while running:
 
     #reset lists
     if matrix[0][1].angle > math.pi*2:
+        time.sleep(5)
         for row in matrix:
             for objekt in row:
                 objekt.reset()

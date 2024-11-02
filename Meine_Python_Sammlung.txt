@@ -12,7 +12,7 @@ resolution = 1000
 
 # pg setup
 pg.init()
-screen = pg.display.set_mode((resolution, resolution))
+screen = pg.display.set_mode([resolution, resolution])
 clock = pg.time.Clock()
 screen.fill((0,0,0))
 
@@ -33,5 +33,14 @@ while running:
 #######################################################
 
 from dataclasses import dataclass
+
+#######################################################
+
+# Animation from Lissajous figures
+#
+# Based on Youtube-Series from Graviatar 
+# https://github.com/Gravitar64/A-beautiful-code-in-Python
+#
+# https://www.youtube.com/playlist?list=PLhC_4AWNg9rklYLWPZmOKeNEW3LcwN5lz
 
 #######################################################
