@@ -10,9 +10,9 @@ from dataclasses import dataclass
 
 # Variables
 resolution = 1000                                                       # auflösung
-fields = int(input("Anzahl Felder: "))                                  # raster
+fields = 25 #int(input("Anzahl Felder: "))                                  # raster
 distance = resolution // fields                                         # abstand
-maxMines = int(input("Anzahl Minen: "))                                 # anzMinen
+maxMines = 30 #int(input("Anzahl Minen: "))                                 # anzMinen
 matrix = []
 neighbors = [(-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1)]     # benachbarteFelder
 
