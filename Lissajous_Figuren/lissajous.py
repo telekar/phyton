@@ -17,7 +17,7 @@ import time
 from dataclasses import dataclass
 
 #variables
-resolution = 1000
+resolution = 800
 rows = 15
 distance = resolution // rows
 radius = (distance - 20) // 2

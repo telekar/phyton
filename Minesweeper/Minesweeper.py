@@ -9,7 +9,7 @@ import random as rnd
 from dataclasses import dataclass
 
 # Variables
-resolution = 1000                                                       # auflösung
+resolution = 800                                                       # auflösung
 fields = 25 #int(input("Anzahl Felder: "))                                  # raster
 distance = resolution // fields                                         # abstand
 maxMines = 30 #int(input("Anzahl Minen: "))                                 # anzMinen
