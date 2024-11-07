@@ -12,7 +12,7 @@ resolution = 1000
 
 # pg setup
 pg.init()
-screen = pg.display.set_mode([resolution, resolution])
+screen = pg.display.set_mode([resolution, resolution],pg.RESIZABLE)
 clock = pg.time.Clock()
 screen.fill((0,0,0))
 

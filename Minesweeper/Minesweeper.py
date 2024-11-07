@@ -19,7 +19,7 @@ neighbors = [(-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1)]     # benach
 
 # pg setup
 pg.init()
-screen = pg.display.set_mode([resolution, resolution])
+screen = pg.display.set_mode([resolution, resolution],pg.RESIZABLE)
 pg.display.set_caption('MINESWEEPER')
 clock = pg.time.Clock()
 
