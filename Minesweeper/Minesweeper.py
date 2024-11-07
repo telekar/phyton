@@ -12,7 +12,7 @@ from dataclasses import dataclass
 resolution = 800                                                       # auflösung
 fields = 25 #int(input("Anzahl Felder: "))                                  # raster
 distance = resolution // fields                                         # abstand
-maxMines = 30 #int(input("Anzahl Minen: "))                                 # anzMinen
+maxMines = 50 #int(input("Anzahl Minen: "))                                 # anzMinen
 matrix = []
 neighbors = [(-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1)]     # benachbarteFelder
 
@@ -20,6 +20,7 @@ neighbors = [(-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1)]     # benach
 # pg setup
 pg.init()
 screen = pg.display.set_mode([resolution, resolution])
+pg.display.set_caption('MINESWEEPER')
 clock = pg.time.Clock()
 
 cell_normal = pg.transform.scale(pg.image.load("cell_normal.gif"),(distance,distance))

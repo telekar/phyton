@@ -109,6 +109,7 @@ def draw():
 #pg setup
 pg.init()
 screen = pg.display.set_mode([resolution, resolution])
+pg.display.set_caption('LISSAJOUS')
 clock = pg.time.Clock()
 
 
