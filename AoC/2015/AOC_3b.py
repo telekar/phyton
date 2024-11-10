@@ -66,7 +66,10 @@ for n in range(len(directions)):
                 koordxR = xR,yR
                 floorX.append(koordR)
                 #print (n,directions[n],floorR)
-print(floorX )
-print(len(floorX))
+einzigartige_elemente = set(floorX)
+print(len(einzigartige_elemente))
+doppelte_elemente = list(set(floorX) - set(einzigartige_elemente))
+print(doppelte_elemente)
+#print(len(floorX))
 
 
