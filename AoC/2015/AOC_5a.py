@@ -7,7 +7,6 @@ for n in range(len(inputstr)):
 nice = 0
 
 def checkLetters(element):
-    count = 0
     verbose = ("ab","cd","pq","xy")
 
     for letters in verbose:
@@ -42,7 +41,7 @@ for element in inputList:
     if not countVowels(element):
         continue
 
-    nice = nice +1  
+    nice = nice + 1  
     
 print(nice)
   

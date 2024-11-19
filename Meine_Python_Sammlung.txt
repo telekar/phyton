@@ -1,8 +1,11 @@
 
 # Einfügen von Dateien
 
-with open ( "OneMill_Pi.txt","r") as f:
-    pi = f.read()
+with open ( "puzzle_5a.txt","r") as f:
+    inputstr = f.read()
+
+for n in range(len(inputstr)):
+    inputList = inputstr.split("\n")
 
 #######################################################
 
