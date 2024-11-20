@@ -35,15 +35,7 @@ while running:
 
 #######################################################
 
-from dataclasses import dataclass
+rows = 1000
 
-#######################################################
-
-# Animation from Lissajous figures
-#
-# Based on Youtube-Series from Graviatar 
-# https://github.com/Gravitar64/A-beautiful-code-in-Python
-#
-# https://www.youtube.com/playlist?list=PLhC_4AWNg9rklYLWPZmOKeNEW3LcwN5lz
-
-#######################################################
+#define matrix
+grid1 = grid2 =[[0]*rows for i in range(rows)]

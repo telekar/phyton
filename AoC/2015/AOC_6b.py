@@ -13,7 +13,6 @@ grid1 =[[0]*rows for i in range(rows)]
 grid2 =[[0]*rows for i in range(rows)]
 
 def fillGrid(x1,y1,x2,y2,cmd):
-    print(x1,y1,x2,y2,cmd)
     for i in range(x1,x2+1):
         for j in range(y1,y2+1):
             if cmd == "on":
@@ -46,19 +45,13 @@ for line in inputList:
     y2 = int(y2)
     
     if "turn on" in line:
-        print(line)
-        print(x1,y1,x2,y2)
         fillGrid(x1,y1,x2,y2,"on")
 
     if "toggle" in line:
-        print(line)
-        print(x1,y1,x2,y2)
         fillGrid(x1,y1,x2,y2,"toggle")
         
     if "turn off" in line:
-        print(line)
-        print(x1,y1,x2,y2)
         fillGrid(x1,y1,x2,y2,"off")
 
-print (sumGrid(grid1))
-print (sumGrid(grid2))
+print ("Part 1:", sumGrid(grid1))
+print ("Part 2:",sumGrid(grid2))
