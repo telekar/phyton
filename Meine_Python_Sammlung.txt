@@ -38,4 +38,15 @@ while running:
 rows = 1000
 
 #define matrix
-grid1 = grid2 =[[0]*rows for i in range(rows)]
+grid =[[0]*rows for i in range(rows)]
+
+#######################################################
+
+def sumGrid(grid):
+    sum = 0
+    for zeile in grid:
+        for element in zeile:
+            sum += element
+    return sum
+
+#######################################################

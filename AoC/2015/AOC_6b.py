@@ -37,12 +37,9 @@ def sumGrid(grid):
 
 for line in inputList:
     words = line.split()
-    x1,y1 = words[-3].split(",")
-    x2,y2 = words[-1].split(",")
-    x1 = int(x1)
-    y1 = int(y1)
-    x2 = int(x2)
-    y2 = int(y2)
+    x1,y1 = map(int,words[-3].split(","))
+    x2,y2 = map(int,words[-1].split(","))
+   
     
     if "turn on" in line:
         fillGrid(x1,y1,x2,y2,"on")
