@@ -1,16 +1,17 @@
 # Solved with help by youtube
 
-with open ( "test.txt","r") as f:
+with open ( "puzzle_7a.txt","r") as f:
     inputstr = f.read()
 
 for n in range(len(inputstr)):
     inputList = inputstr.split("\n")
+
 table = {}
 
 for line in inputList:
     left , right =line.split(" -> ")
     table [right] = left
-print(table)
+
 mem = {}
 
 def get_val(var):
@@ -49,18 +50,11 @@ def get_val(var):
     return mem[var]
 
 #part 1
-print('d:',get_val('d'))
-print('e:',get_val('e'))
-print('f:',get_val('f'))
-print('g:',get_val('g'))
-print('h:',get_val('h'))
-print('i:',get_val('i'))
-print('x:',get_val('x'))
-print('y:',get_val('y'))
+print(get_val('a'))
 
 #part 2
 mem = {}
 table['b'] = '16076'
-#print(get_val('a'))
+print(get_val('a'))
 
 
