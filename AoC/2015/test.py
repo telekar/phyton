@@ -1,66 +1,43 @@
-# Solved with help by youtube
-
 with open ( "test.txt","r") as f:
     inputstr = f.read()
 
 for n in range(len(inputstr)):
     inputList = inputstr.split("\n")
-table = {}
+
+print(inputList)
+
+def checkLine(line):
+    copy = line
+    newLine = ""
+    count = 0
+    k=0
+    line = line.replace('\\\\',"????")
+    line = line.replace('\\x',"???")
+    line = line.replace('\\"',"????")
+    
+    print(line)
+    """for i in range(len(copy)+k):
+        print("start:",len(copy))
+        esc = (copy[i:i+2])
+        if esc == '\\x':
+            copy = copy[:i] + "???" + copy[i+2:]
+            k += 1
+            print(len(copy))
+        elif esc == '\\"':
+            copy = copy[:i] + "???" + copy[i+2:]
+            print(len(copy))
+        elif esc == '\\\\':
+            copy = copy[:i] + "????" + copy[i+2:]
+            k += 2
+            print(len(copy))
+            print(copy)
+    """  
+            
+            
+    return (line)
+        
 
 for line in inputList:
-    left , right =line.split(" -> ")
-    table [right] = left
-print(table)
-mem = {}
-
-def get_val(var):
-    if var.isdigit():
-        return int(var)
-    if var in mem:
-        return mem[var]
-    s = table[var]
-    if s.isdigit():
-        mem[var] = int(s)
-        return mem[var]
-    if s.startswith("NOT"):
-        s1 = get_val(s[4:])
-        t = bin(s1)[2:].zfill(16)                           #wandelt string in eine 16bit binärzahl ohne 'ob'
-        t = ''.join('1' if c == '0' else '0' for c in t)    #negiert bitweise und erstellt einen string
-        result = int('0b' + t, 2)                           #wandelt neuen string in zahl
-        mem[var] = result
-        return mem[var]
-    if 'OR' in s:
-        s1 ,s2 = s.split(' OR ')
-        mem[var] = get_val(s1) | get_val(s2)
-        return mem[var]
-    if 'AND' in s:
-        s1 ,s2 = s.split(' AND ')
-        mem[var] = get_val(s1) & get_val(s2)
-        return mem[var]
-    if 'LSHIFT' in s:
-        s1, d =s.split(' LSHIFT ')
-        mem[var] = get_val(s1) << int(d)
-        return mem[var]
-    if 'RSHIFT' in s:
-        s1, d =s.split(' RSHIFT ')
-        mem[var] = get_val(s1) >> int(d)
-        return mem[var]
-    mem[var] = get_val(s)
-    return mem[var]
-
-#part 1
-print('d:',get_val('d'))
-print('e:',get_val('e'))
-print('f:',get_val('f'))
-print('g:',get_val('g'))
-print('h:',get_val('h'))
-print('i:',get_val('i'))
-print('x:',get_val('x'))
-print('y:',get_val('y'))
-
-#part 2
-mem = {}
-table['b'] = '16076'
-#print(get_val('a'))
-
-
+    nline = checkLine(line)
+    print(nline)
+    print (4+len(nline))
