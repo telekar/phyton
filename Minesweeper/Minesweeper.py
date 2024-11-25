@@ -9,17 +9,18 @@ import random as rnd
 from dataclasses import dataclass
 
 # Variables
-resolution = 1000                                                       # auflösung
-fields = int(input("Anzahl Felder: "))                                  # raster
+resolution = 800                                                        # auflösung
+fields = 25 #int(input("Anzahl Felder: "))                              # raster
 distance = resolution // fields                                         # abstand
-maxMines = int(input("Anzahl Minen: "))                                 # anzMinen
+maxMines  = setMines = 70 #int(input("Anzahl Minen: "))                 # anzMinen
 matrix = []
 neighbors = [(-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1)]     # benachbarteFelder
 
 
 # pg setup
 pg.init()
-screen = pg.display.set_mode([resolution, resolution])
+screen = pg.display.set_mode([resolution, resolution],pg.RESIZABLE)
+pg.display.set_caption('MINESWEEPER')
 clock = pg.time.Clock()
 
 cell_normal = pg.transform.scale(pg.image.load("cell_normal.gif"),(distance,distance))
@@ -75,6 +76,20 @@ def floodFillZero(row,line):
             else:
                 cell.selected = True
 
+def countFlagged(matrix):
+  counter = 0
+  for n in range(fields*fields):
+    if matrix[n].flagged:
+        counter += 1
+  return counter
+
+def countSelected(matrix):
+  counter = 0
+  for n in range(fields*fields):
+    if matrix[n].selected:
+        counter += 1
+  return counter
+
 #fill matrix
 for n in range(fields*fields):
     matrix.append(Cell(n // fields, n % fields))
@@ -107,20 +122,26 @@ while running:
             idx = row * fields + line
             cell = matrix[idx]
             if pg.mouse.get_pressed()[2]:
-                cell.flagged = not cell.flagged
+                if not cell.selected:
+                    cell.flagged = not cell.flagged
+                    if countFlagged(matrix) >= 0:
+                        pg.display.set_caption(f'MINESWEEPER {setMines - countFlagged(matrix)} Bomben übrig')
+                
             if pg.mouse.get_pressed()[0]:
                 cell.selected = True
                 if cell.MinesArround == 0 and not cell.mine:
                     floodFillZero(row,line)
                 if cell.mine:
+                    pg.display.set_caption('MINESWEEPER Du hast verloren !! Versuche es nochmal')
                     for object in matrix:
                         object.selected = True
 
-
+            if countSelected(matrix) + countFlagged(matrix) == fields * fields:
+                pg.display.set_caption('MINESWEEPER Glückwunsch - Du hast gewonnen ')
     
     for object in matrix:
         object.show()
 
-
+    #print(matrix[0])
     pg.display.flip()
 pg.quit()

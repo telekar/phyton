@@ -1,8 +1,11 @@
 
 # Einfügen von Dateien
 
-with open ( "OneMill_Pi.txt","r") as f:
-    pi = f.read()
+with open ( "puzzle_5a.txt","r") as f:
+    inputstr = f.read()
+
+for n in range(len(inputstr)):
+    inputList = inputstr.split("\n")
 
 #######################################################
 
@@ -12,7 +15,7 @@ resolution = 1000
 
 # pg setup
 pg.init()
-screen = pg.display.set_mode([resolution, resolution])
+screen = pg.display.set_mode([resolution, resolution],pg.RESIZABLE)
 clock = pg.time.Clock()
 screen.fill((0,0,0))
 
@@ -32,15 +35,27 @@ while running:
 
 #######################################################
 
-from dataclasses import dataclass
+rows = 1000
+
+#define matrix
+grid =[[0]*rows for i in range(rows)]
 
 #######################################################
 
-# Animation from Lissajous figures
-#
-# Based on Youtube-Series from Graviatar 
-# https://github.com/Gravitar64/A-beautiful-code-in-Python
-#
-# https://www.youtube.com/playlist?list=PLhC_4AWNg9rklYLWPZmOKeNEW3LcwN5lz
+def sumGrid(grid):
+    sum = 0
+    for zeile in grid:
+        for element in zeile:
+            sum += element
+    return sum
 
 #######################################################
+
+def replace(line):
+    
+    line = line.replace('\\\\',"????")
+    line = line.replace('\\x',"???")
+    line = line.replace('\\"',"????")
+    return(line)
+
+######################################################

@@ -1,1 +1,6 @@
-))(((((
+""
+"abc"
+"aaa\"aaa"
+"\x27"
+"dz\\ztawzdjy"
+"myvkgnw\x81q\xaaokt\\emgejbsyvxcl\\\xee"

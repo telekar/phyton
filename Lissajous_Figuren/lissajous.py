@@ -17,7 +17,7 @@ import time
 from dataclasses import dataclass
 
 #variables
-resolution = 1000
+resolution = 800
 rows = 15
 distance = resolution // rows
 radius = (distance - 20) // 2
@@ -108,7 +108,8 @@ def draw():
 
 #pg setup
 pg.init()
-screen = pg.display.set_mode([resolution, resolution])
+screen = pg.display.set_mode([resolution, resolution],pg.RESIZABLE)
+pg.display.set_caption('LISSAJOUS')
 clock = pg.time.Clock()
 
 
