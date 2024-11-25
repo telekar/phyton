@@ -50,3 +50,12 @@ def sumGrid(grid):
     return sum
 
 #######################################################
+
+def replace(line):
+    
+    line = line.replace('\\\\',"????")
+    line = line.replace('\\x',"???")
+    line = line.replace('\\"',"????")
+    return(line)
+
+######################################################
