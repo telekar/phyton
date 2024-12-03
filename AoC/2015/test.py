@@ -1,5 +1,9 @@
+import itertools
+
 distances = {}
 citiList = set ()
+routeList = ()
+
 with open ('test.txt', 'r') as f:
     for line in f:
         cities, distance = line.split(' = ')
@@ -7,29 +11,36 @@ with open ('test.txt', 'r') as f:
         citiList.add(city1)
         citiList.add(city2)
         distances[(city1, city2)] = int(distance)
+        distances[(city2, city1)] = int(distance)
         print (city1,city2,distance)
 
-print(citiList)
+#print(citiList)
+print(distances)
+routs = list(itertools.permutations(citiList))
 
-def find_combinations(cities, r):
-  """Findet alle Kombinationen von r Städten aus einer Liste.
+städte = list(distances.keys())
+min_distance = float('inf')
+next_city = ()
+for start in städte:
+    current_distance = 0
+    current_city = start
+    for _ in range(len(städte)-1):
+        min_dist = float('inf')
+        for city in städte:
+            if city != current_city and (current_city,city) in distances:
+                if distances[(current_city,city)] < min_dist:
+                    min_dist = distances[(current_city,city)]
+                    next_city = city
+        current_distance += min_dist
+        
+        current_city = next_city
+        print(current_distance,current_city)
+    if current_distance < min_distance:
+        min_distance = current_distance
+        shortest_route = start
 
-  Args:
-    cities: Eine Liste von Städten.
-    r: Die Anzahl der Städte in jeder Kombination.
+#print(shortest_route) 
+#print(min_distance) 
+            
 
-  Returns:
-    Eine Liste aller möglichen Kombinationen.
-  """
-
-  result = []
-  if r == 0:
-    return [[]]
-  for i in range(len(citiList)):
-    rest = citiList[:i] + citiList[i+1:]
-    for c in find_combinations(rest, r-1):
-      result.append([citiList[i]] + c)
-  return result
-
-print (find_combinations(citiList,len(citiList)))
-
+print (städte)
