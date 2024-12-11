@@ -1,43 +1,46 @@
-with open ( "test.txt","r") as f:
-    inputstr = f.read()
+import itertools
 
-for n in range(len(inputstr)):
-    inputList = inputstr.split("\n")
+distances = {}
+citiList = set ()
+routeList = ()
 
-print(inputList)
+with open ('test.txt', 'r') as f:
+    for line in f:
+        cities, distance = line.split(' = ')
+        city1, city2 =cities.split(' to ')
+        citiList.add(city1)
+        citiList.add(city2)
+        distances[(city1, city2)] = int(distance)
+        distances[(city2, city1)] = int(distance)
+        print (city1,city2,distance)
 
-def checkLine(line):
-    copy = line
-    newLine = ""
-    count = 0
-    k=0
-    line = line.replace('\\\\',"????")
-    line = line.replace('\\x',"???")
-    line = line.replace('\\"',"????")
-    
-    print(line)
-    """for i in range(len(copy)+k):
-        print("start:",len(copy))
-        esc = (copy[i:i+2])
-        if esc == '\\x':
-            copy = copy[:i] + "???" + copy[i+2:]
-            k += 1
-            print(len(copy))
-        elif esc == '\\"':
-            copy = copy[:i] + "???" + copy[i+2:]
-            print(len(copy))
-        elif esc == '\\\\':
-            copy = copy[:i] + "????" + copy[i+2:]
-            k += 2
-            print(len(copy))
-            print(copy)
-    """  
-            
-            
-    return (line)
+#print(citiList)
+print(distances)
+routs = list(itertools.permutations(citiList))
+
+städte = list(distances.keys())
+min_distance = float('inf')
+next_city = ()
+for start in städte:
+    current_distance = 0
+    current_city = start
+    for _ in range(len(städte)-1):
+        min_dist = float('inf')
+        for city in städte:
+            if city != current_city and (current_city,city) in distances:
+                if distances[(current_city,city)] < min_dist:
+                    min_dist = distances[(current_city,city)]
+                    next_city = city
+        current_distance += min_dist
         
+        current_city = next_city
+        print(current_distance,current_city)
+    if current_distance < min_distance:
+        min_distance = current_distance
+        shortest_route = start
 
-for line in inputList:
-    nline = checkLine(line)
-    print(nline)
-    print (4+len(nline))
+#print(shortest_route) 
+#print(min_distance) 
+            
+
+print (städte)
