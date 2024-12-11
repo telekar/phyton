@@ -1,6 +1,3 @@
-""
-"abc"
-"aaa\"aaa"
-"\x27"
-"dz\\ztawzdjy"
-"myvkgnw\x81q\xaaokt\\emgejbsyvxcl\\\xee"
+London to Dublin = 464
+London to Belfast = 518
+Dublin to Belfast = 141
