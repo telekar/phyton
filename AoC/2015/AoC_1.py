@@ -4,6 +4,10 @@
 # An opening parenthesis, (, means he should go up one floor, and 
 # a closing parenthesis, ), means he should go down one floor.
 
+# find the position of the first character that causes him to enter 
+# the basement (floor -1). The first character in the instructions has position 1, 
+# the second character has position 2, and so on.
+
 with open ( "puzzle1.txt","r") as f:
     direction = f.read()
 
