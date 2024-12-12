@@ -1,4 +1,10 @@
-with open ( "puzzle_3a.txt","r") as f:
+# Moves are always exactly one house to the 
+# north (^), south (v), east (>), or west (<). 
+# After each move, he delivers another present to the house at his new location.
+
+# How many houses receive at least one present?
+
+with open ( "puzzle3.txt","r") as f:
     directions = f.read()
 
 floor = []
@@ -30,6 +36,6 @@ for n in range(len(directions)):
       koord = x,y
       floor.append(koord)
 
-print(len(floor))
+print('Part 1:',len(floor))
 
 
