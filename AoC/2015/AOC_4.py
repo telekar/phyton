@@ -1,6 +1,12 @@
+# find MD5 hashes which, in hexadecimal, start with at least five zeroes. 
+# The input to the MD5 hash is some secret key (your puzzle input, given below)
+# followed by a number in decimal.
+
+# Now find one that starts with six zeroes.
+
 import hashlib
 
-with open ( "puzzle_4a.txt","r") as f:
+with open ( "puzzle4.txt","r") as f:
     puzzle = f.read()
 
 def create_md5_hash(data):
@@ -21,12 +27,13 @@ while check5 or check6:
     hash_wert = create_md5_hash(puzzle+strI)
 
     if check5 and hash_wert[:5] == "00000":
-        print(i)
+        print('Part 1:',i)
         print(hash_wert)
+        print()
         check5 = False
 
     if check6 and hash_wert[:6] == "000000":
-        print(i)
+        print('Part 2:',i)
         print(hash_wert)
         check6 = False
     
