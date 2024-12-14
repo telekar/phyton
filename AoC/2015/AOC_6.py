@@ -1,5 +1,15 @@
-with open ( "puzzle_6a.txt","r") as f:
-#with open ( "test.txt","r") as f:   
+# turn on 0,0 through 999,999 would turn on (or leave on) every light.
+# toggle 0,0 through 999,0 would toggle the first line of 1000 lights, turning off the ones that were on, and turning on the ones that were off.
+# turn off 499,499 through 500,500 would turn off (or leave off) the middle four lights.
+# After following the instructions, how many lights are lit?
+
+# The phrase turn on actually means that you should increase the brightness of those lights by 1.
+# The phrase turn off actually means that you should decrease the brightness of those lights by 1, to a minimum of zero.
+# The phrase toggle actually means that you should increase the brightness of those lights by 2.
+
+# What is the total brightness
+
+with open ( "puzzle6.txt","r") as f:  
     inputstr = f.read()
 
 for n in range(len(inputstr)):

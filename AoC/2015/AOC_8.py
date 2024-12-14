@@ -1,4 +1,4 @@
-with open ( "puzzle_8a.txt","r") as f:
+with open ( "puzzle8.txt","r") as f:
     inputstr = f.read()
 
 for n in range(len(inputstr)):
