@@ -1,10 +1,11 @@
 import re
 lines = []
-with open ( "test","r") as f:
-    for line in f.readlines():
-        x,y = (int(z) for z in line.split())
 
-print (x,y)
+with open ( "puzzle_3a","r") as f:
+    input = f.read()
+
+for n in range(len(input)):
+    lists = input.split("\n")
 
 def findMul(input):
     muster = r"mul\(([\d]+),([\d]+)\)"
@@ -13,10 +14,9 @@ def findMul(input):
 
 sum1 = 0
 
-for Line in lines:
-    #print(Line)
+for Line in lists:
     mulList = findMul(Line)
-    print(mulList)
+    
    
     for mult in mulList:
         a,b = mult
