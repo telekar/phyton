@@ -3,7 +3,7 @@ from itertools import permutations
 distances = {}
 towns = set()
 
-with open ( "puzzle_9a.txt","r") as f:
+with open ( "puzzle9.txt","r") as f:
    for line in f.readlines():
         left, right = line.strip().split(' = ')
         dist = int(right)

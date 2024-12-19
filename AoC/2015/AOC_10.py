@@ -8,7 +8,7 @@ import time
 time_start = time.perf_counter()
 
 
-with open ( "puzzle_10a.txt","r") as f:
+with open ( "puzzle10.txt","r") as f:
     inputstr1 = f.read()
 
 inputstr2 = inputstr1

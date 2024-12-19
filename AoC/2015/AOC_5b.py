@@ -1,4 +1,11 @@
-with open ( "puzzle_5a.txt","r") as f:
+# Now, a nice string is one with all of the following properties:
+
+# It contains a pair of any two letters that appears at least twice in the string without overlapping, 
+# like xyxy (xy) or aabcdefgaa (aa), but not like aaa (aa, but it overlaps).
+# It contains at least one letter which repeats with exactly one letter between them, like xyx, abcdefeghi (efe), or even aaa.
+
+with open ( "puzzle5.txt","r") as f:
+
     inputstr = f.read()
 
 for n in range(len(inputstr)):

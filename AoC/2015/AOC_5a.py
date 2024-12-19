@@ -1,4 +1,10 @@
-with open ( "puzzle_5a.txt","r") as f:
+# A nice string is one with all of the following properties:
+
+# It contains at least three vowels (aeiou only), like aei, xazegov, or aeiouaeiouaeiou.
+# It contains at least one letter that appears twice in a row, like xx, abcdde (dd), or aabbccdd (aa, bb, cc, or dd).
+# It does not contain the strings ab, cd, pq, or xy, even if they are part of one of the other requirements.
+
+with open ( "puzzle5.txt","r") as f:
     inputstr = f.read()
 
 for n in range(len(inputstr)):

@@ -1,6 +1,6 @@
 # Solved with help by youtube
 
-with open ( "puzzle_7a.txt","r") as f:
+with open ( "puzzle7.txt","r") as f:
     inputstr = f.read()
 
 for n in range(len(inputstr)):
