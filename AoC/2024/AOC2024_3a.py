@@ -1,25 +1,29 @@
 import re
-lines = []
 
 with open ( "puzzle_3a","r") as f:
-    input = f.read()
+    lines = f.readlines()
 
-for n in range(len(input)):
-    lists = input.split("\n")
-
-def findMul(input):
-    muster = r"mul\(([\d]+),([\d]+)\)"
-    treffer = re.findall(muster, input)
-    return treffer
-
+doIt = True
 sum1 = 0
+sum2 = 0
 
-for Line in lists:
-    mulList = findMul(Line)
+for line in lines:
+    lists = re.findall("mul\\(\\d+,\\d+\\)|do\\(\\)|don\\'t\\(\\)", line)
     
-   
-    for mult in mulList:
-        a,b = mult
-        sum1 += int(a)*int(b)
+    for command in lists:
+        if command == "do()":
+            doIt = True
+            continue
+        if command == "don't()":
+            doIt = False
+            continue
+        if doIt == True:
+            numbers = list(map(int, re.findall("\\d+",command)))
+            sum2 += numbers[0] * numbers[1]
+       
+        if doIt == False:
+            numbers = list(map(int, re.findall("\\d+",command)))
+            sum1 +=  numbers[0] * numbers[1]
 
-print('Part1:',sum1)
+print("Part 1: ",sum1 + sum2)
+print("Part 2: ",sum2)
